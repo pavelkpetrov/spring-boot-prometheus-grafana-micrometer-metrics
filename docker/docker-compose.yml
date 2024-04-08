@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.26.1
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus-data:/prometheus
+      - ./prometheus:/etc/prometheus
+    command: --config.file=/etc/prometheus/prometheus.yml
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  grafana:
+    image: grafana/grafana:7.5.6
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/datasources/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./grafana/books-dashboards.yaml:/etc/grafana/provisioning/dashboards/books-dashboards.yaml
+      - ./grafana/books-jvmgc-dashboards.yaml:/etc/grafana/provisioning/dashboards/books-jvmgc-dashboards.yaml
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    depends_on:
+      - prometheus
+
+volumes:
+  prometheus-data:
+  grafana-data:
