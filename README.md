@@ -1,6 +1,7 @@
 # Source
-Get source form: https://github.com/akolata/spring-boot-metrics
-Updated for private usage
+Get source form: https://github.com/akolata/spring-boot-metrics.
+
+Updated for private usage.
 
 # Metrics
 
