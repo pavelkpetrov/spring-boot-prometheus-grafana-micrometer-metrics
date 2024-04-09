@@ -19,7 +19,7 @@ Update `scrape_configs[].static_configs[].targets` list under `books_app` job
 with your IP address.  
 On macOS you can use `ifconfig | grep "inet " | grep -v 127.0.0.1` command.
 
-After that in `./docker` directory run `sudo docker compose -f docker-compose.yml up --build --detach` to start Prometheus and Grafana running in Docker.
+After that in `./docker` directory run `sudo docker-compose -f docker-compose.yml up --build --detach` to start Prometheus and Grafana running in Docker.
 
 ## Prometheus
 * Prometheus http://localhost:9090
