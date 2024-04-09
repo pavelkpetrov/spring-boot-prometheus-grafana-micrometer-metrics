@@ -62,6 +62,7 @@ Custom metrics:
 * `books_service_books_in_store_count` - gauge - a current number of books in store
 * `books_service_books_search_by_title` - timer showing how long does it take to search for books
 * `books_service_api_books_get_count` - counter - a number of requests to `GET /api/books` endpoint
+* `books_service_api_books_api_test_total` - counter - a number of test requests to `GET /api/test` endpoint
 
 ### HTTP graph
 * avg response time for statuses other than 5..: `sum(rate(http_server_requests_seconds_sum{status!~"5.."}[60s])) / sum(rate(http_server_requests_seconds_count{status!~"5.."}[60s]))`, label `avg`
